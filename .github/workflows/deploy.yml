@@ -17,11 +17,14 @@ jobs:
       with:
         node-version: "14.x"
 
-    - name: Install Unity
-      uses: Unity-Technologies/setup-unity@v1
-      with:
-        version: "2020.3.20f1"
-
+  - uses: game-ci/unity-builder@v2
+    env:
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+    with:
+      targetPlatform: WebGL
+      
     - name: Build and Deploy HTML5
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
