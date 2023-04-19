@@ -31,7 +31,7 @@ jobs:
       run: |
         # Move the built files to the dist directory
         mkdir -p dist
-        cp -r ./github/workspace/build/WebGL/WebGL
+        cp -r ./github/workspace/build/WebGL/WebGL ./dist/
 
         # Deploy the built files to the production branch
         git config user.name "GitHub Actions"
