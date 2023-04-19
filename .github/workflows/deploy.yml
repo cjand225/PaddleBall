@@ -25,6 +25,9 @@ jobs:
       with:
         targetPlatform: WebGL
 
+    - name: Add Unity to PATH
+      run: export PATH="$PATH:/opt/Unity/Editor"
+
     - name: Build and Deploy HTML5
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
