@@ -1,0 +1,76 @@
+{
+    "name": "PaddleInputActions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "06ce47dd-aee5-4090-8885-2dabe9ce700b",
+            "actions": [
+                {
+                    "name": "PaddleLeft",
+                    "type": "Value",
+                    "id": "4825007c-8952-476c-bd4f-eded18332784",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "PaddleRight",
+                    "type": "Button",
+                    "id": "8c9055f1-c7ff-4bc5-b46d-d72c4948cc87",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d3c55db9-f301-4c8d-b6c4-0210dc8d30d7",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PaddleLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc504f0f-48a8-4c7e-b1e4-959ac6ec3aca",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "Invert",
+                    "groups": "",
+                    "action": "PaddleLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1007f0d-8f79-464f-8416-6903d2e11cfa",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PaddleRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41a831d2-b055-48ff-9208-6c650c4c7811",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "Invert",
+                    "groups": "",
+                    "action": "PaddleRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
