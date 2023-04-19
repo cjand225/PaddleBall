@@ -32,12 +32,12 @@ jobs:
         # Move the built files to the dist directory
         mkdir -p dist
         ls
-        
+
         # Deploy the built files to the production branch
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git checkout -b production
-        git add build/
+        git add -f build/
         git commit -m "Deploy HTML5 build"
         git push -u origin production
 
