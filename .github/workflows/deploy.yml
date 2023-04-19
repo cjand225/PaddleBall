@@ -18,13 +18,13 @@ jobs:
         node-version: "14.x"
 
     - name: Install Unity
-      uses: game-ci/setup-unity@v1
+      uses: Unity-Technologies/setup-unity@v1
       with:
-        unity-version: "2021.3.22f1"
+        version: "2020.3.20f1"
 
     - name: Build and Deploy HTML5
       env:
-        GITHUB_TOKEN: ${{ secrets.PADDLE_BALL_DEPLOY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         unity -batchmode -nographics -silent-crashes -logFile
         -projectPath ./PaddleBall
@@ -42,3 +42,4 @@ jobs:
         git add dist/
         git commit -m "Deploy HTML5 build"
         git push -u origin production
+
