@@ -42,4 +42,3 @@ jobs:
         git add dist/
         git commit -m "Deploy HTML5 build"
         git push -u origin production
-
