@@ -32,13 +32,12 @@ jobs:
         # Move the built files to the dist directory
         mkdir -p dist
         ls
-        cp -r /github/workspace/build/WebGL ./dist/
-
+        
         # Deploy the built files to the production branch
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git checkout -b production
-        git add dist/
+        git add build/
         git commit -m "Deploy HTML5 build"
         git push -u origin production
 
