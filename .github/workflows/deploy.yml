@@ -32,7 +32,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        unity -batchmode -nographics -silent-crashes -logFile
+        /opt/unity/Editor/Unity -batchmode -nographics -silent-crashes -logFile
         -projectPath ./PaddleBall
         -executeMethod BuildScript.PerformBuild
         -quit
