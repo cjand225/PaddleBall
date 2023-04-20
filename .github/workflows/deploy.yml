@@ -27,7 +27,7 @@ jobs:
 
     - name: Build and Deploy HTML5
       env:
-        PAT: ${{ secrets.PAT }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         # Move the built files to the dist directory
         mkdir -p dist
