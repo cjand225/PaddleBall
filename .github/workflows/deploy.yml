@@ -49,5 +49,5 @@ jobs:
         # add built files and deploy
         git add -f ./build/
         git commit -m "Deploy new build"
-        git push -u origin production
+        git push -uf origin production
 
