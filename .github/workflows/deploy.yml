@@ -35,7 +35,7 @@ jobs:
         git checkout -b production
         
         #remove the previous build
-        git rm -r .
+        git rm -fr .
         git commit -m "Remove previous build."
 
         # add built files and deploy
