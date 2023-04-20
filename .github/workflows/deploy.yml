@@ -33,7 +33,7 @@ jobs:
       with:
         targetPlatform: WebGL
 
-    - name: Build and Deploy WEBGL
+    - name: Build and Deploy WebGL
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -47,7 +47,6 @@ jobs:
         git commit -m "Remove previous build."
 
         # add built files and deploy
-        ls ./build/WebGL/WebGL/
         cp -R ./build/WebGL/WebGL/* .
         git add -f ./index.html ./TemplateData/* ./Build
         git commit -m "Deploy new build"
