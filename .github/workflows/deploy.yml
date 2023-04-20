@@ -29,14 +29,24 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        # Move the built files to the dist directory
-        mkdir -p dist
-
         # Deploy the built files to the production branch
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git checkout -b production
-        git add -f build/
+        
+        #remove the project files
+        find . ! -name 'build' -type f -exec rm -f {} +
+        find . ! -name 'build' -type d -exec rm -rf {} +
+        git rm -r .
+
+        #copy it to the working directory
+        cp -R ./build/* .
+
+        # remove build after copied
+        rm -rf ./build/
+
+        # add built files and deploy
+        git add -f .
         git commit -m "Deploy HTML5 build"
         git push -u origin production
 
