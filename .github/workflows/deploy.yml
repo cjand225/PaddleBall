@@ -47,8 +47,8 @@ jobs:
         git commit -m "Remove previous build."
 
         # add built files and deploy
-        ls ./build/WebGL/
-        cp -R /build/WebGL/WebGL/* .
+        ls ./build/WebGL/WebGL/
+        cp -R ./build/WebGL/WebGL/* .
         git add -f ./index.html ./TemplateData/* ./Build
         git commit -m "Deploy new build"
         git push -uf origin production
