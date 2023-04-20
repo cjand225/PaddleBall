@@ -17,6 +17,7 @@ jobs:
       with:
         node-version: "14.x"
 
+    - name: Build Unity Game
     - uses: game-ci/unity-builder@v2.2.0
       env:
         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -25,7 +26,7 @@ jobs:
       with:
         targetPlatform: WebGL
 
-    - name: Build and Deploy HTML5
+    - name: Build and Deploy WEBGL
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -34,13 +35,12 @@ jobs:
         git config user.email "actions@github.com"
         git checkout -b production
         
-        #remove the project files
-        find . ! -name 'build' -type f -exec rm -f {} +
-        find . ! -name 'build' -type d -exec rm -rf {} +
+        #remove the previous build
         git rm -r .
+        git commit -m "Remove previous build."
 
         # add built files and deploy
-        git add -f .
-        git commit -m "Deploy HTML5 build"
+        git add -f ./build/
+        git commit -m "Deploy new build"
         git push -u origin production
 
