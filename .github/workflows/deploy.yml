@@ -17,6 +17,15 @@ jobs:
       with:
         node-version: "14.x"
 
+    - name: Cache Library
+      uses: actions/cache@v2
+      with:
+        path: |
+          Library
+        key: ${{ runner.os }}-library-${{ hashFiles('**/Packages/manifest.json') }}
+        restore-keys: |
+          ${{ runner.os }}-library-
+
     - uses: game-ci/unity-builder@v2.2.0
       env:
         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -33,7 +42,8 @@ jobs:
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git checkout -b production
-        
+        git pull --ff-only
+
         #remove the previous build
         git rm -fr .
         git commit -m "Remove previous build."
