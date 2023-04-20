@@ -77,7 +77,7 @@ public class Paddle : MonoBehaviour
         float movement = verticalInput * speed * Time.deltaTime;
 
         // Move the Paddle vertically
-        transform.Translate(new Vector2(0, movement));
+        transform.Translate(new Vector2(movement, 0));
 
         // Clamp the Paddle's position to stay within the screen bounds
         float clampedY = Mathf.Clamp(transform.position.y, -4.25f, 4.25f);
