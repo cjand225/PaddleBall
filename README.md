@@ -22,6 +22,8 @@ Player 2 (right paddle):
 - Up Arrow: Move paddle up
 - Down Arrow: Move paddle down
 
+To pause the game, press ESC. You can resume the game by pressing ESC again, or by clicking the "Resume" button in the pause menu.
+
 ## Getting Started
 
 To play the game, open the project in Unity and run the `Main` scene.
