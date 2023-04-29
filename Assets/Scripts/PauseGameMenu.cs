@@ -6,29 +6,11 @@
  */
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static SceneCommon;
 
 public class PauseGameMenu : MonoBehaviour
 {
     private string pauseSceneName = "PauseScene";
-
-    /**
-     * Checks if a scene with the specified name is loaded.
-     *
-     * @param sceneName The name of the scene to check for.
-     * @return true if the scene is loaded, false otherwise.
-     */
-    bool SceneExists(string sceneName)
-    {
-        for (int i = 0; i < SceneManager.sceneCount; i++)
-        {
-            Scene scene = SceneManager.GetSceneAt(i);
-            if (scene.name == sceneName)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
 
     /**
      * Called every frame to check if the ESC key has been pressed.
@@ -40,7 +22,7 @@ public class PauseGameMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(SceneExists(pauseSceneName))
+            if(SceneCommon.SceneExists(pauseSceneName))
             {
                 ResumeGame();
             }
