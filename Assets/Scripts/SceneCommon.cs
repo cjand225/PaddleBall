@@ -1,5 +1,5 @@
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public static class SceneCommon
@@ -22,4 +22,14 @@ public static class SceneCommon
         }
         return false;
     }
+
+    /**
+     * @brief Sets the time scale for the game.
+     * @param timeScale The time scale value.
+     */
+    public static void setTimeScale(float timeScale)
+    {
+        Time.timeScale = timeScale;
+    }
+
 }

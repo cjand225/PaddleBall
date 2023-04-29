@@ -6,6 +6,7 @@
  */
 using UnityEngine;
 using TMPro;
+using static SceneCommon;
 
 public class Ball : MonoBehaviour
 {
@@ -65,10 +66,14 @@ public class Ball : MonoBehaviour
      */
     void Start()
     {
+        SceneCommon.setTimeScale(1f);
+
+        //Initialize UI
         canvas = GameObject.Find(canvasName).GetComponent<Canvas>();
         textPlayerScoreLeft = GameObject.Find(playerScoreLeftName).GetComponent<TextMeshProUGUI>();
         textPlayerScoreRight = GameObject.Find(playerScoreRightName).GetComponent<TextMeshProUGUI>();
 
+        //Initialize ball physics
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         initialDirection = GetRandomDirection();

@@ -38,7 +38,7 @@ public class PauseGameMenu : MonoBehaviour
      */
     void PauseGame()
     {
-        Time.timeScale = 0f;
+        SceneCommon.setTimeScale(0f);
         SceneManager.LoadScene(pauseSceneName, LoadSceneMode.Additive);
     }
 
@@ -47,7 +47,7 @@ public class PauseGameMenu : MonoBehaviour
      */
     void ResumeGame()
     {
-        Time.timeScale = 1f;
+        SceneCommon.setTimeScale(1f);
         SceneManager.UnloadSceneAsync(pauseSceneName);
     }
 }
