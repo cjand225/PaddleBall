@@ -8,17 +8,37 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    /**
+     * The name of the game scene.
+     */
     private string gameSceneName = "GameScene";
-    
+
+    /**
+     * The name of the menu scene.
+     */
     private string menuSceneName = "MenuScene";
+
+    /**
+     * The name of the pause scene.
+     */
+    private string pauseSceneName = "PauseScene";
+
+    /**
+     * @brief Sets the time scale for the game.
+     * @param timeScale The time scale value.
+     */
+    private void setTimeScale(float timeScale)
+    {
+        Time.timeScale = timeScale;
+    }
 
     /**
      * Resumes the game by unloading the pause menu scene and setting the time scale to 1.
      */
     public void ResumeGame()
     {
-        Time.timeScale = 1f;
-        SceneManager.UnloadSceneAsync("PauseScene");
+        setTimeScale(1f);
+        SceneManager.UnloadSceneAsync(pauseSceneName);
     }
 
     /**
@@ -26,7 +46,7 @@ public class PauseMenu : MonoBehaviour
      */
     public void RestartGame()
     {
-        Time.timeScale = 1f;
+        setTimeScale(1f);
         SceneManager.LoadScene(gameSceneName);
     }
 
