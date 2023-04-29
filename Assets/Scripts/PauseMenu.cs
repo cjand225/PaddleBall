@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     private string gameSceneName = "GameScene";
+    
+    private string menuSceneName = "MenuScene";
 
     /**
      * Resumes the game by unloading the pause menu scene and setting the time scale to 1.
@@ -33,6 +35,6 @@ public class PauseMenu : MonoBehaviour
      */
     public void QuitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene(menuSceneName);
     }
 }
