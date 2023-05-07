@@ -76,8 +76,7 @@ public class Ball : MonoBehaviour
         //Initialize ball physics
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-        initialDirection = GetRandomDirection();
-        LaunchBall(initialDirection);
+        LaunchBall(GetRandomDirection());
     }
 
     /**
@@ -98,9 +97,16 @@ public class Ball : MonoBehaviour
      *
      * @param direction The direction in which to launch the ball.
      */
-    void LaunchBall(Vector2 direction)
+    private void LaunchBall(Vector2 direction)
     {
         rigidBody.velocity = direction * speed;
+    }
+
+    private void ResetBall()
+    {
+        //Reset position and velocity and relaunch ball
+        transform.position = Vector2.zero;
+        rigidBody.velocity = Vector2.zero;
     }
 
     /**
@@ -108,7 +114,7 @@ public class Ball : MonoBehaviour
      *
      * @return A random direction for the ball to be launched in.
      */
-    Vector2 GetRandomDirection()
+    private Vector2 GetRandomDirection()
     {
         // Choose a random angle with a more significant X direction and a smaller Y direction
         float randomAngle = Random.Range(-30f, 30f);
@@ -131,7 +137,7 @@ public class Ball : MonoBehaviour
      *
      * @param collision The collision data.
      */
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Paddle"))
         {
@@ -189,10 +195,8 @@ public class Ball : MonoBehaviour
                 playerScoreLeft++;
             }
 
-            //Reset position and velocity and relaunch ball
-            transform.position = Vector2.zero;
-            rigidBody.velocity = Vector2.zero;
-            LaunchBall(initialDirection);
+            ResetBall();
+            LaunchBall(GetRandomDirection());
         }
     }
 }
