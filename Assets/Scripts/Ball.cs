@@ -26,16 +26,6 @@ public class Ball : MonoBehaviour
     private Vector2 initialDirection;
 
     /**
-     * The score of the left player.
-     */
-    private int playerScoreLeft = 0;
-
-    /**
-     * The score of the right player.
-     */
-    private int playerScoreRight = 0;
-
-    /**
      * This method is called when the object is first enabled.
      *
      * It sets up the rigidbody component and launches the ball in a random direction.
