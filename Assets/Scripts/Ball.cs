@@ -11,30 +11,6 @@ using static SceneCommon;
 public class Ball : MonoBehaviour
 {
     /**
-     * The name of the UI Object.
-     */
-    private string canvasName = "Canvas";
-
-    private string playerScoreLeftName = "TextPlayerScoreLeft";
-
-    private string playerScoreRightName = "TextPlayerScoreRight";
-
-    /**
-    * The Canvas object for displaying the UI.
-    */
-    private Canvas canvas;
-
-    /**
-    * The UI TextMeshProUGUI component for displaying the left player's score.
-    */
-    private TextMeshProUGUI textPlayerScoreLeft;
-
-    /**
-    * The UI TextMeshProUGUI component for displaying the right player's score.
-    */
-    private TextMeshProUGUI textPlayerScoreRight;
-
-    /**
      * The speed of the ball.
      */
     private float speed = 5f;
@@ -68,11 +44,6 @@ public class Ball : MonoBehaviour
     {
         SceneCommon.setTimeScale(1f);
 
-        //Initialize UI
-        canvas = GameObject.Find(canvasName).GetComponent<Canvas>();
-        textPlayerScoreLeft = GameObject.Find(playerScoreLeftName).GetComponent<TextMeshProUGUI>();
-        textPlayerScoreRight = GameObject.Find(playerScoreRightName).GetComponent<TextMeshProUGUI>();
-
         //Initialize ball physics
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -87,9 +58,6 @@ public class Ball : MonoBehaviour
     void Update()
     {
         rigidBody.velocity = rigidBody.velocity.normalized * speed;
-                
-        textPlayerScoreLeft.SetText(playerScoreLeft.ToString());
-        textPlayerScoreRight.SetText(playerScoreRight.ToString());
     }
 
     /**
@@ -186,15 +154,6 @@ public class Ball : MonoBehaviour
     {
         if (collider.CompareTag("Goal"))
         {
-            if (collider.transform.position.x < 0)
-            {
-                playerScoreRight++;
-            }
-            else
-            {
-                playerScoreLeft++;
-            }
-
             ResetBall();
             LaunchBall(GetRandomDirection());
         }
