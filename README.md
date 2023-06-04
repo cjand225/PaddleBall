@@ -28,6 +28,8 @@ To pause the game, press ESC. You can resume the game by pressing ESC again, or 
 
 To play the game, open the project in Unity and run the `Main` scene.
 
+For live demo, [PaddleBall Demo!](https://cjand225.github.io/PaddleBall/)
+
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more information.
