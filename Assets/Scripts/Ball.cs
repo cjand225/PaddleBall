@@ -11,9 +11,19 @@ using static SceneCommon;
 public class Ball : MonoBehaviour
 {
     /**
-     * The speed of the ball.
+     * The start speed of the ball.
      */
-    private float speed = 5f;
+    private float baseSpeed = 5f;
+    
+    /**
+     * The speed increase of the ball after being hit.
+     */
+    private float speedIncrement = 1f;
+
+    /**
+     * The dynamically set speed of the ball.
+     */
+    private float speed;
 
     /**
      * The rigidbody component of the ball.
@@ -33,6 +43,7 @@ public class Ball : MonoBehaviour
     void Start()
     {
         SceneCommon.setTimeScale(1f);
+        speed = baseSpeed;
 
         //Initialize ball physics
         rigidBody = GetComponent<Rigidbody2D>();
@@ -65,6 +76,7 @@ public class Ball : MonoBehaviour
         //Reset position and velocity and relaunch ball
         transform.position = Vector2.zero;
         rigidBody.velocity = Vector2.zero;
+        speed = baseSpeed;
     }
 
     /**
@@ -116,6 +128,7 @@ public class Ball : MonoBehaviour
                 rigidBody.velocity = dir * speed;
             }
 
+            speed += speedIncrement;
         }  
 
     }
